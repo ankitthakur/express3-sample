@@ -1,0 +1,63 @@
+{% extends '../layout.html' %}
+
+{% block title %}My Page{% endblock %}
+
+{% block head %}
+  {% parent %}
+  <link href="../css/register.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+
+{% block pageTitle %}
+  {% parent %}
+{% endblock %}
+
+
+{% block content %}
+<div id="registerForm">
+	<form action="/register" method="post">
+			<fieldset>
+				<legend id="legend">{{Register}}</legend>
+				<table>
+					<tr id="tr">
+						<td><label for="email" id="usernameLabel">{{Username}}</label></td>
+						<td>
+							<input type="text" id="username" placeholder="{{username}}" name="username"/>
+						</td>
+					</tr>
+	
+					<tr id="tr">
+						<td><label for="email" id="emailLabel">{{Email}}</label></td>
+						<td>
+							<input type="text" id="email" placeholder="{{email}}" name="email"/>
+						</td>
+					</tr>
+	
+					<tr id="tr">
+						<td><label for="password" id="pswdLabel">{{Password}}</label></td>
+						<td>
+							<input type="text" id="password" placeholder="{{password}}" name="password"/>
+						</td>
+					</tr>
+	
+					<tr id="tr">
+						<td><label for="password" id="cpswdLabel">{{ConfirmPassword}}</label></td>
+						<td>
+							<input type="text" id="cpassword" placeholder="{{confirmpassword}}" name="confirmPassword"/>
+						</td>
+					</tr>
+	
+					<tr id="tr">
+						<td>
+							<input type="submit" class="btn-submit" value="{{submit}}"/>
+						</td>
+						<td>
+							<input type="button" class="btn-cancel" value="{{cancel}}"/>
+						</td>
+					</tr>
+				</table>
+			</fieldset>
+	</form>
+</div>
+
+{% endblock %}

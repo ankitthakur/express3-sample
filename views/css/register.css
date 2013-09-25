@@ -1,0 +1,93 @@
+/**
+ * style.css
+ *
+ * Your css goes in this file
+ */
+ body, b1, #registerForm {
+    margin: 5px 5px 5px 5px;
+}
+form, fieldset {
+    margin: 20px auto;
+    padding: 10px auto;
+    outline:'#dedede';
+}
+html {
+    height: 100%;
+}
+body {
+    background: #233244;
+    background: -moz-linear-gradient(top, #25303C 0%, #728eaa 100%);
+    /* FIREFOX */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #233244));
+    /*WEB-KIT */
+    ;
+    font-family:sans-serif;
+}
+#registerForm {
+    width: 500px;
+    margin: 10px auto;
+    padding: 30px 20px;
+    background: #c9d0de;
+    border: 1px groove #e2e2e2;
+    outline:'#233244';
+	-moz-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+	-webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+	box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+}
+h1 {
+    font-size: 28px;
+    color: #445668;
+    text-align: center;
+    margin: 0 0 35px 0;
+    text-shadow:0px 1px 10px #f2f2f2
+}
+#legend {
+    font-size: 24px;
+    color: #445668;
+    text-align: left;
+    margin: 0 0 25px 0;
+    text-shadow:0px 1px 0px #f2f2f2
+}
+
+#username, #email, #password, #cpassword  {
+    font-size: 16px;
+    color: #445668;
+    text-align: left;
+    margin: 0 0 10px 10px;
+	padding-left: 5x;
+	width: 250px;
+    text-shadow:0px 1px 0px #dedede
+}
+
+#usernameLabel,#emailLabel,#pswdLabel, #cpswdLabel {
+    font-size: 18px;
+    color: #445668;
+    text-align: left;
+    margin: 0 0 0px 0px;
+	padding-left: 15px;
+	width: 220px;
+    text-shadow:0px 1px 0px #f2f2f2
+}
+
+
+.btn-submit, .btn-cancel{
+	height: 30px;
+	left: 30px;
+	width: 150px;
+	font-size: 20px;
+	color: #f2f2f2;
+	background: #233244;
+	background: -moz-linear-gradient(top, #25303C 0%, #728eaa 100%);
+	/* FIREFOX */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #233244));
+	/*WEB-KIT */
+	text-align: center;
+	margin: 20px 20px 20px 20px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	border: 1px solid #dedede;
+	text-shadow:0px 1px 0px #f2f2f2;
+	-moz-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px; #f2f2f2;
+	-webkit-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px #f2f2f2;
+	box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 0px 0px 1px 1px #f2f2f2;
+}
