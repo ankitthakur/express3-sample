@@ -6,16 +6,21 @@ var express= require('express')
 , config = new Conf(app, express)
 
 //modules
+
+, ViewConfig = require('./views')
+, viewConfig = new ViewConfig(app, express)
+
+
 // login module
 , Login = require('./modules/login')
-, login = new Login(app, express);
+, login = new Login(app, express)
 
 // 
 // // register module
-// , Register = require('./modules/register')
-// , register = new Register(app, express);
+, Register = require('./modules/register')
+, register = new Register(app, express);
 
 
-app.listen(1985);
+app.listen(3001);
 
-console.log('app is listening to 1985');
+console.log('app is listening to 3001');

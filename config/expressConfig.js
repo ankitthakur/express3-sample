@@ -17,7 +17,7 @@ var ExpressConf = function(app, express){
 		ignore logging requests for static files, but to continue logging routes and middleware defined after logger(), 
 		you would simply move static() above: 
 		*/
-		app.use(express.static(__dirname + '/public'));
+		// app.use(express.static(__dirname + '/public'));
 		/* 
 		express.logger() is the very first middleware you would use, logging every request 
 		*/

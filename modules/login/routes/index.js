@@ -19,8 +19,7 @@ var LoginRoutes = function(app){
 		console.log(__dirname);
 	  
 		app.get('/login', function(req, res){
-			
-			res.render('login',LoginViewModel);
+			res.render('html/login',LoginViewModel);
 		});
 
 		app.post('/login', function(req, res) {

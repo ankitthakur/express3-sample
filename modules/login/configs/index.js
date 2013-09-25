@@ -1,32 +1,16 @@
-var LoginConfig = function(app){
+var LoginConfig = function(app, express){
   
 	this.displayName = 'LoginConfig';
   
 	var routes;
   
-	setup = function(app, viewDir){
+	setup = function(app, express){
   	  
-		var cons	= require('consolidate')
-		, swig		= require('swig')
-		, path		= require('path')
-		, VIEWS_DIR	= path.join(__dirname+'../../views');
-		
-		console.log(VIEWS_DIR);
-		app.configure(function(){
-			app.engine('html', cons.swig);
-  	  
-			app.set('view engine', 'html');
-			app.set('views', VIEWS_DIR);
-			/* 
-			Swig will cache templates for you, but you can disable
-			that and use Express's caching instead, if you like:
-			*/
-			app.set('view cache', false);
-		});
+		// for future use
 	}
 	
   
-	setup(app);
+	setup(app, express);
 }
 
 module.exports = LoginConfig;
