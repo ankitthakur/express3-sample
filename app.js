@@ -20,6 +20,17 @@ var express= require('express')
 , Register = require('./modules/register')
 , register = new Register(app, express);
 
+var User = require ('./models/User');
+var userModel = new User({username:'username', password:'password', email:'thakur'});
+
+userModel.validate(function(data, err){
+	console.log('err: '+err);
+})
+console.log('thanks2');
+userModel.validate({username:'username', password:'password', email:'thakur'}, function(err){
+	console.log(err);
+});
+
 
 app.listen(3001);
 

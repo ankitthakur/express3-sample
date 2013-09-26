@@ -12,6 +12,7 @@
 	"mongoose":"latest",
 	"pg":"latest",
 	"less-middleware":"latest",
-	"reversable-router":"latest"
+	"reversable-router":"latest",
+	"crypto":"latest"
   }
 }
