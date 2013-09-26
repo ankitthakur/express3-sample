@@ -3,7 +3,7 @@
 */
 
 /**
-data = {
+data                = {
 	firstName:'First Name',
 	'User.js'
 	lastName:'Last Name',
@@ -16,26 +16,20 @@ data = {
 
 function User(data){
   
-	var UserSchema = require('./UserSchema')
-	, userSchema = new UserSchema()
-	, UserModel = userSchema.mongoose.model('User', userSchema.schema);
+	var UserSchema     = require('./UserSchema')
+	, userSchema       = new UserSchema()
+	, UserModel        = userSchema.mongoose.model('User', userSchema.schema);
 	
-	this.model = new UserModel(data);
+	this.model         = new UserModel(data);
 	
 	console.log('this.model.fields : '+this.model);
 	console.log('this.model.password : '+this.model.password);
 }
 
-User.prototype.validate = function (err, callback){
+User.prototype.save = function (callBack){
 	
-	if (!this.validator(this.model.password)) {
-		next(new Error('Invalid password'));
-	}
-}
-
-User.prototype.save     = function (user, callBack){
-	
-	this.model.save             = function (err) {
+	console.log('start saving');
+	this.model.save    = function (err) {
 		
 		if (err) 
 			console.error(err); // we should handle this
@@ -45,4 +39,4 @@ User.prototype.save     = function (user, callBack){
 	}
 }
 
-module.exports               = User;
+module.exports      = User;
