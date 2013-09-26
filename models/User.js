@@ -3,40 +3,61 @@
 */
 
 /**
-data                = {
-	firstName:'First Name',
-	'User.js'
-	lastName:'Last Name',
-	username:'user@123',
-	email:'email123@abc.com',
-	password:'pswd@123',
-	age:21
+data                    = {
+firstName:'First Name',
+'User.js'
+lastName:'Last Name',
+username:'user@123',
+email:'email123@abc.com',
+password:'pswd@123',
+age:21
 }
 */
 
 function User(data){
   
-	var UserSchema     = require('./UserSchema')
-	, userSchema       = new UserSchema()
-	, UserModel        = userSchema.mongoose.model('User', userSchema.schema);
+	var UserSchema         = require('./UserSchema')
+	, userSchema           = new UserSchema()
+	, UserModel            = userSchema.mongoose.model('User', userSchema.schema);
 	
-	this.model         = new UserModel(data);
+	UserModel.schema.path('email').validate(function (value) {
+		var emailRegex        = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
+	  return emailRegex.test(value);
+	}, 'Invalid email');
 	
-	console.log('this.model.fields : '+this.model);
-	console.log('this.model.password : '+this.model.password);
+	this.user              = new UserModel(data);
+	
+	
+	
+	console.log('this.model.fields : '+this.user);
+	console.log('this.model.password : '+this.user.password);
 }
 
-User.prototype.save = function (callBack){
+User.prototype.validate = function (callBack){
+	
+	console.log(err.errors.email.type)
+	console.log(err.errors.email.message)
+	
+}
+
+User.prototype.save     = function (callBack){
 	
 	console.log('start saving');
-	this.model.save    = function (err) {
+	console.log('callBack '+callBack);
+	console.log('schema '+this.user.schema);
+	this.user.save(function (err) {
 		
-		if (err) 
+		console.log(err.errors.email.type);
+		console.log(err.errors.email.message);
+		;
+		console.log('callBack');
+		if (err) {
 			console.error(err); // we should handle this
-		
-		callBack(this.model, err);
-		
-	}
+		}
+		callBack(err);		
+	});
 }
 
-module.exports      = User;
+User.prototype.model    = this.user;
+
+module.exports          = User;

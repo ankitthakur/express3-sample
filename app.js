@@ -21,11 +21,13 @@ var express= require('express')
 , register = new Register(app, express);
 
 var User = require ('./models/User');
-var userModel = new User({username:'username', password:'password', email:'thakur'});
+var userModel = new User({username:'username1', password:'password1', email:'thakur1'});
 
-userModel.save(function(data, err){
+userModel.save(function(err) {
+    console.log('err: ');
 	console.log('err: '+err);
-})
+	console.log('err: ');
+});
 
 app.listen(3001);
 

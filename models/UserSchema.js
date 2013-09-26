@@ -25,13 +25,7 @@ var UserSchema                   = function (){
 		, age: optionalNumberType
 	};
 	
-	this.schema                      = this.getSchema(UserSchemaProperties);
-	
-	
-	this.schema.path('email').validate(function (value) {
-		var emailRegex                 = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-		return emailRegex.test(value); 
-	}, 'Invalid email.');
+	this.schema                     = this.getSchema(UserSchemaProperties);
 	
 	console.log('this.schema: '+ this.schema);
 	

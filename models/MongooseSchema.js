@@ -7,7 +7,7 @@ function MongooseSchema(){
 	console.log('Mongoose this.Schema '+this.Schema);
 }
 
-MongooseSchema.prototype.getSchema   = function(properties){
+MongooseSchema.prototype.getSchema	= function(properties){
 	var schema                          = new this.Schema(properties);
 	return schema;
 };
