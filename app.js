@@ -22,7 +22,7 @@ var express= require('express')
 , register = new Register(app, express);
 
 var User = require ('./models/User');
-var userModel = new User({username:'username1', password:'password1', email:'thakur1'});
+var userModel = new User({username:'username1', password:'password1', email:'thakur1@gmail.com'});
 
 userModel.save(function(err) {
     console.log('err: ');

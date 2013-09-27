@@ -16,9 +16,11 @@ data                           = {
 
 function User(data){
   
-	var UserSchema                = require('./UserSchema')
+	var UserSchema                = require('./schemas/UserSchema')
 	, userSchema                  = new UserSchema()
 	, UserModel                   = userSchema.mongoose.model('User', userSchema.schema);
+	
+	console.log('data model : '+data);
 	
 	UserModel.schema.path('email').validate(function (value) {
 		var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
