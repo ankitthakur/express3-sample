@@ -27,6 +27,17 @@ var RegisterRoutes = function(app){
 
 		app.post('/register', function(req, res) {
 			console.log(req.body);
+			
+			/*
+var User = require ('./models/User');
+var userModel = new User({username:'username1', password:'password1', email:'thakur1@gmail.com'});
+
+userModel.save(function(err) {
+    console.log('err: ');
+	console.log('err: '+err);
+	console.log('err: ');
+});
+			*/
 			res.send(req.params);
 		});
 	

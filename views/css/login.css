@@ -5,6 +5,8 @@
  */
  body, b1, #loginForm {
     margin: 5px 5px 5px 5px;
+    padding: 0px;
+    outline:'#233244';
 }
 form, fieldset {
     margin: 20px auto;
@@ -41,22 +43,22 @@ h1 {
     margin: 0 0 35px 0;
     text-shadow:0px 1px 10px #f2f2f2
 }
-#legend {
-    font-size: 25px;
-    color: #445668;
-    text-align: left;
-    margin: 0 0 25px 0;
-    text-shadow:0px 1px 0px #f2f2f2
-}
 
 #password, #email {
     font-size: 20px;
     color: #445668;
     text-align: left;
     margin: 0 0 10px 10px;
-	padding-left: 5x;
-	width: 250px;
-    text-shadow:0px 1px 0px #dedede
+	width: 200px;
+    text-shadow:0px 1px 0px #dedede;
+	padding: 0 20px;
+}
+#legend{
+    color: #445668;
+    text-align: left;
+    margin: 0 0 0px 0px;
+	padding-left: 2x;
+	text-shadow:0px 2px 0px #dedede
 }
 
 #emailLabel, #pswdLabel {
@@ -91,3 +93,35 @@ h1 {
 	-webkit-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px #f2f2f2;
 	box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 0px 0px 1px 1px #f2f2f2;
 }
+
+
+input[type="text"], fieldset.elist > legend {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ #legend {
+ font-family: sans-serif;
+  font-size: 14px;
+}
+
+
+
+#email:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACHklEQVQ4jY2Tv2sUQRTHP2/2zkO4RhCP+COF2igmiBZ2AYvEIrm9VUgpanIEwcJCC/8ISQTxRw4j2KQJwdxsUoQo2FmkSFDUNKYQAsZCSBVuNzPP4vbiJor4qsfM+37mOzPvCfticPDquSDQUZB+0AqACN+9lyVj/Itms/k5Xy+dZHh4+ECrlYyD3AaC/eAsnKo+6eqq3G80GukuoC1O54F+IAF9CTrlnPsKYEzptIivA7eAIrBYKhXDmZmZpADQaqWP22LZAFe11q7sO3kZWI6iqOE9FriSJOkEcEdqtVqPqqyCJqCXrLUfqtVqt0gwAfQBh/ey/AUw74GCiPYa76kDRtU8y4lXgWt/isFau6Kqk0Dgvamb9muDiJtu3zcYBw4Bb5wLTlk7J9bOSR5iDFmt9hsRjgOUSqU1AFUyoI4sLMyu/+0rkiT5ktV2G8AAbG1taecAAOec7whqtdqJPKBcLnf2nFHlW9tB+Wy2+Da7ymQYhkeHhoaOeS/P84Dt7Z2eLF0vgC6BnBFxN4Bl1eCBiOsDGQTZMMbssR+GkULHLO8M+AbgQOphGPbG8eyaqjsPNAGnyk9VpoHr0HabhXofTEpGfQTc/UcjARBF0UXn9HIcNx921gRgbGysuLn5Y16VAXKtnKbpR4BC4WAv6KiIjgBFkJvWvn61C4D/HyYRnlYqR+7tGaZ8/B5nBkBPZkbXVWURdqbiOP6Ur/8Fng3uAGCp2voAAAAASUVORK5CYII=") no-repeat 2px center !important;
+}
+
+#pasword:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAABXElEQVRYhe3XwUrcUBTG8Z/VhaCIUsEiovgAunEjWF3oG+hGFN/CRaGlT+BjqM8ircrQguBKQVAY7KLoyMjo6CKTMtxGTWYm6iIfnMW5Ofd8/1xukhuy6QOWsY0TVHGLU+xgpVGTi2ZRwsMLUWrUdlTrort9yTyOKjY6Zb6IWgbzOGpYate8D+dB4zp2sYDeRsyL9kA9qL1AfzsAX4KGd1h7pn7V/6v1tR2Ao6DZ9xRzvgVzjls1nwga3Ui3nH2oBHMnnyp+7pkdD/J9XKcAqOBnMDbRCsDHIL9MYR6rHOTDrQB0BflDBoB6Wp/cXptp9eYA4TIPYBMzGMN007UyfqXsO4WRpvw3znCILfxNmtSNPdlfuVnjB3qSAGZfwTyOudi0eQ98SqLKSaNJAG+iAqAAKAAKgALgXQGkOXB2SldJg4Oig2fen+I/GHqK7LPo+H2fg3EdB6LfuH96BBgEx4xWiWsdAAAAAElFTkSuQmCC") no-repeat 2px center !important;
+}
+
+input[type="text"]:hover,input[type="password"]:hover, textarea:hover, select:hover{
+  background-color: #eeeeee;
+}
+
+fieldset {
+  border: 2px #445668 solid;
+  border-radius: 10px;
+}
+

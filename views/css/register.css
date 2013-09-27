@@ -3,8 +3,10 @@
  *
  * Your css goes in this file
  */
- body, b1, #registerForm {
+ body, b1, #loginForm {
     margin: 5px 5px 5px 5px;
+    padding: 0px;
+    outline:'#233244';
 }
 form, fieldset {
     margin: 20px auto;
@@ -23,7 +25,7 @@ body {
     ;
     font-family:sans-serif;
 }
-#registerForm {
+#loginForm {
     width: 500px;
     margin: 10px auto;
     padding: 30px 20px;
@@ -31,26 +33,19 @@ body {
     border: 1px groove #e2e2e2;
     outline:'#233244';
 	-moz-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
-	-webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
-	box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+-webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
 }
 h1 {
-    font-size: 28px;
+    font-size: 30px;
     color: #445668;
     text-align: center;
     margin: 0 0 35px 0;
     text-shadow:0px 1px 10px #f2f2f2
 }
-#legend {
-    font-size: 24px;
-    color: #445668;
-    text-align: left;
-    margin: 0 0 25px 0;
-    text-shadow:0px 1px 0px #f2f2f2
-}
 
-#username, #email, #password, #cpassword  {
-    font-size: 16px;
+#password, #email {
+    font-size: 20px;
     color: #445668;
     text-align: left;
     margin: 0 0 10px 10px;
@@ -58,9 +53,16 @@ h1 {
 	width: 250px;
     text-shadow:0px 1px 0px #dedede
 }
+#legend{
+    color: #445668;
+    text-align: left;
+    margin: 0 0 0px 0px;
+	padding-left: 2x;
+	text-shadow:0px 2px 0px #dedede
+}
 
-#usernameLabel,#emailLabel,#pswdLabel, #cpswdLabel {
-    font-size: 18px;
+#emailLabel, #pswdLabel {
+    font-size: 20px;
     color: #445668;
     text-align: left;
     margin: 0 0 0px 0px;
@@ -91,3 +93,38 @@ h1 {
 	-webkit-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px #f2f2f2;
 	box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 0px 0px 1px 1px #f2f2f2;
 }
+
+
+input[type="text"], fieldset.elist > legend {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ #legend {
+ font-family: sans-serif;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  padding: 0 20px;
+}
+
+
+input[type="text"]:hover, textarea:hover, select:hover{
+  background-color: #eeeeee;
+}
+
+#email:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACHklEQVQ4jY2Tv2sUQRTHP2/2zkO4RhCP+COF2igmiBZ2AYvEIrm9VUgpanIEwcJCC/8ISQTxRw4j2KQJwdxsUoQo2FmkSFDUNKYQAsZCSBVuNzPP4vbiJor4qsfM+37mOzPvCfticPDquSDQUZB+0AqACN+9lyVj/Itms/k5Xy+dZHh4+ECrlYyD3AaC/eAsnKo+6eqq3G80GukuoC1O54F+IAF9CTrlnPsKYEzptIivA7eAIrBYKhXDmZmZpADQaqWP22LZAFe11q7sO3kZWI6iqOE9FriSJOkEcEdqtVqPqqyCJqCXrLUfqtVqt0gwAfQBh/ey/AUw74GCiPYa76kDRtU8y4lXgWt/isFau6Kqk0Dgvamb9muDiJtu3zcYBw4Bb5wLTlk7J9bOSR5iDFmt9hsRjgOUSqU1AFUyoI4sLMyu/+0rkiT5ktV2G8AAbG1taecAAOec7whqtdqJPKBcLnf2nFHlW9tB+Wy2+Da7ymQYhkeHhoaOeS/P84Dt7Z2eLF0vgC6BnBFxN4Bl1eCBiOsDGQTZMMbssR+GkULHLO8M+AbgQOphGPbG8eyaqjsPNAGnyk9VpoHr0HabhXofTEpGfQTc/UcjARBF0UXn9HIcNx921gRgbGysuLn5Y16VAXKtnKbpR4BC4WAv6KiIjgBFkJvWvn61C4D/HyYRnlYqR+7tGaZ8/B5nBkBPZkbXVWURdqbiOP6Ur/8Fng3uAGCp2voAAAAASUVORK5CYII=") no-repeat 2px center !important;
+}
+
+#pasword:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAp0lEQVQ4je2SSwrCQBBEHxLXeoaI4tor6NJFLqHH8Heb7EXMwUYwGHVhqZOxNUPWFhTFdHcV9NBgYwYUgBML1aKwACrgFrAClk3mFDjLsAb64ka1UjNfsdJgbvRyL/iFTjA0lB6NgIN09CsgkZ6MACftWoYEmAMDvadALwiYSFMgA/bA5dnc8vnrTdz5K9T2isTYD2iNf8A74NrCW/NkPC4t9gacPNwBZVE25JxFS+MAAAAASUVORK5CYII=") no-repeat 2px center !important;
+}
+
+fieldset {
+  border: 2px #445668 solid;
+  border-radius: 10px;
+}
+
