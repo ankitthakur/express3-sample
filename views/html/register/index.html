@@ -3,61 +3,127 @@
 {% block title %}My Page{% endblock %}
 
 {% block head %}
-  {% parent %}
-  <link href="../css/register.css" rel="stylesheet" type="text/css"/>
+{% parent %}
+<link href="../css/register.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 
 {% block pageTitle %}
-  {% parent %}
+{% parent %}
 {% endblock %}
 
 
 {% block content %}
-<div id="registerForm">
-	<form action="/register" method="post">
-			<fieldset>
-				<legend id="legend">{{Register}}</legend>
-				<table>
-					<tr id="tr">
-						<td><label for="email" id="usernameLabel">{{Username}}</label></td>
-						<td>
-							<input type="text" id="username" placeholder="{{username}}" name="username" autofocus required/>
-						</td>
-					</tr>
+<script type="text/javascript">
+
+$( "#registerForm" ).submit(function( event ) {
+
+	if ( $( "input#username" ).val() != "" ) {
+		alert('Logging you in!');
+		return;
+	}
+
+	alert( "Please enter the username!" );
+	event.preventDefault();         
+});
+
+ 
+function heckPassword(password)
+{
+	var strength = new Array();
+	strength[0] = "Blank";
+	strength[1] = "Very Weak";
+	strength[2] = "Weak";
+	strength[3] = "Medium";
+	strength[4] = "Strong";
+	strength[5] = "Very Strong";
+
+	var score = 1;
+
+	if (password.length < 1)
+		return strength[0];
+
+	if (password.length < 4)
+		return strength[1];
+
+	if (password.length >= 8)
+		score++;
+	if (password.length >= 10)
+		score++;
+	if (password.match(/\d+/))
+		score++;
+	if (password.match(/[a-z]/) &&
+		password.match(/[A-Z]/))
+		score++;
+	if (password.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,£,(,)]/))
+		score++;
+
+	return strength[score];
+}
+		
+
+function passwordChanged(field)
+    {
+        var span = document.getElementById("PasswordStrength");
+        span.innerHTML = checkPassword(field.value);
+    }
 	
-					<tr id="tr">
-						<td><label for="email" id="emailLabel">{{Email}}</label></td>
-						<td>
-							<input type="email" id="email" placeholder="{{email}}" name="email" required/>
-						</td>
-					</tr>
+    function ButtonClicked(field)
+    {
+        var strength = document.getElementById("PasswordStrength").innerHTML;
+         
+        if (strength.indexOf("Strong") < 0)
+        {
+            alert("Password is not strong enough!");
+            return false;
+        }
+    }
+
+
+</script>
+
+<form id="register" action="/register" method="post" id='registerForm'>
+		<fieldset>
+			<legend id="legend">{{Register}}</legend>
+			<table>
+				<tr id="tr">
+					<td><label for="email" id="usernameLabel">{{Username}}</label></td>
+					<td>
+						<input type="text" id="username" placeholder="{{username}}" name="username" autofocus required/>
+					</td>
+				</tr>
 	
-					<tr id="tr">
-						<td><label for="password" id="pswdLabel">{{Password}}</label></td>
-						<td>
-							<input type="password" id="password" placeholder="{{password}}" name="password" required/>
-						</td>
-					</tr>
+				<tr id="tr">
+					<td><label for="email" id="emailLabel">{{Email}}</label></td>
+					<td>
+						<input type="email" id="email" placeholder="{{email}}" name="email" required/>
+					</td>
+				</tr>
 	
-					<tr id="tr">
-						<td><label for="password" id="cpswdLabel">{{ConfirmPassword}}</label></td>
-						<td>
-							<input type="password" id="cpassword" placeholder="{{confirmpassword}}" name="confirmPassword" required/>
-						</td>
-					</tr>
+				<tr id="tr">
+					<td><label for="password" id="pswdLabel">{{Password}}</label></td>
+					<td>
+						<input type="password" id="pswd" placeholder="{{password}}" name="password" onchange="passwordChanged(this)" required/>
+					</td>
+				</tr>
 	
-					<tr id="tr">
-						<td>
-							<input type="submit" class="btn-submit" value="{{submit}}"/>
-						</td>
-						<td>
-							<input type="button" class="btn-cancel" value="{{cancel}}"/>
-						</td>
-					</tr>
-				</table>
-			</fieldset>
+				<tr id="tr">
+					<td><label for="password" id="cpswdLabel">{{ConfirmPassword}}</label></td>
+					<td>
+						<input type="password" id="cpswd" placeholder="{{confirmpassword}}" name="confirmPassword" required/>
+					</td>
+				</tr>
+	
+				<tr id="tr">
+					<td>
+						<input type="submit" class="btn-submit" value="{{submit}}"/>
+					</td>
+					<td>
+						<input type="button" class="btn-cancel" value="{{cancel}}"/>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
 	</form>
-</div>
 
 {% endblock %}

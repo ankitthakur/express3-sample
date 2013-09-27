@@ -3,7 +3,7 @@
  *
  * Your css goes in this file
  */
- body, b1, #loginForm {
+ body, b1, #register {
     margin: 5px 5px 5px 5px;
     padding: 0px;
     outline:'#233244';
@@ -25,7 +25,7 @@ body {
     ;
     font-family:sans-serif;
 }
-#loginForm {
+#register {
     width: 500px;
     margin: 10px auto;
     padding: 30px 20px;
@@ -33,8 +33,8 @@ body {
     border: 1px groove #e2e2e2;
     outline:'#233244';
 	-moz-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
--webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+	-webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+	box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
 }
 h1 {
     font-size: 30px;
@@ -44,15 +44,28 @@ h1 {
     text-shadow:0px 1px 10px #f2f2f2
 }
 
-#password, #email {
-    font-size: 20px;
+#pswd, #email, #cpswd {
+    font-size: 14px;
     color: #445668;
     text-align: left;
     margin: 0 0 10px 10px;
-	padding-left: 5x;
-	width: 250px;
-    text-shadow:0px 1px 0px #dedede
+	width: 200px;
+	height: 30px;
+    text-shadow:0px 1px 0px #dedede;
+	padding: 0 20px;
 }
+
+#username {
+    font-size: 14px;
+    color: #445668;
+    text-align: left;
+    margin: 0 0 10px 10px;
+	width: 240px;
+	height:30px;
+    text-shadow:0px 1px 0px #dedede;
+	padding: 0 20px;
+}
+
 #legend{
     color: #445668;
     text-align: left;
@@ -61,7 +74,7 @@ h1 {
 	text-shadow:0px 2px 0px #dedede
 }
 
-#emailLabel, #pswdLabel {
+#usernameLabel,#emailLabel, #pswdLabel,#cpswdLabel {
     font-size: 20px;
     color: #445668;
     text-align: left;
@@ -106,21 +119,26 @@ input[type="text"], fieldset.elist > legend {
   font-size: 14px;
 }
 
-input[type="text"] {
-  padding: 0 20px;
-}
 
-
-input[type="text"]:hover, textarea:hover, select:hover{
-  background-color: #eeeeee;
-}
 
 #email:focus {
   background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACHklEQVQ4jY2Tv2sUQRTHP2/2zkO4RhCP+COF2igmiBZ2AYvEIrm9VUgpanIEwcJCC/8ISQTxRw4j2KQJwdxsUoQo2FmkSFDUNKYQAsZCSBVuNzPP4vbiJor4qsfM+37mOzPvCfticPDquSDQUZB+0AqACN+9lyVj/Itms/k5Xy+dZHh4+ECrlYyD3AaC/eAsnKo+6eqq3G80GukuoC1O54F+IAF9CTrlnPsKYEzptIivA7eAIrBYKhXDmZmZpADQaqWP22LZAFe11q7sO3kZWI6iqOE9FriSJOkEcEdqtVqPqqyCJqCXrLUfqtVqt0gwAfQBh/ey/AUw74GCiPYa76kDRtU8y4lXgWt/isFau6Kqk0Dgvamb9muDiJtu3zcYBw4Bb5wLTlk7J9bOSR5iDFmt9hsRjgOUSqU1AFUyoI4sLMyu/+0rkiT5ktV2G8AAbG1taecAAOec7whqtdqJPKBcLnf2nFHlW9tB+Wy2+Da7ymQYhkeHhoaOeS/P84Dt7Z2eLF0vgC6BnBFxN4Bl1eCBiOsDGQTZMMbssR+GkULHLO8M+AbgQOphGPbG8eyaqjsPNAGnyk9VpoHr0HabhXofTEpGfQTc/UcjARBF0UXn9HIcNx921gRgbGysuLn5Y16VAXKtnKbpR4BC4WAv6KiIjgBFkJvWvn61C4D/HyYRnlYqR+7tGaZ8/B5nBkBPZkbXVWURdqbiOP6Ur/8Fng3uAGCp2voAAAAASUVORK5CYII=") no-repeat 2px center !important;
 }
 
-#pasword:focus {
-  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAAp0lEQVQ4je2SSwrCQBBEHxLXeoaI4tor6NJFLqHH8Heb7EXMwUYwGHVhqZOxNUPWFhTFdHcV9NBgYwYUgBML1aKwACrgFrAClk3mFDjLsAb64ka1UjNfsdJgbvRyL/iFTjA0lB6NgIN09CsgkZ6MACftWoYEmAMDvadALwiYSFMgA/bA5dnc8vnrTdz5K9T2isTYD2iNf8A74NrCW/NkPC4t9gacPNwBZVE25JxFS+MAAAAASUVORK5CYII=") no-repeat 2px center !important;
+#username:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAABM0lEQVQ4jbWUMS8EURRGz3lBlkRBodmKaNVCotrGJttpVaLxd7QapU69EYlGdEuoLBq0GoWwYp5mV8ZkZnZ3wpe8ZObdN+d+796bgT+WI8S3QwhNgCRJToBDIFZKFkI4UmNmHQOhCnAnBxbVCOyNb0/bRUD1rOi7MusTJbGpsYHqfUmsW5KsUI2SGm5WAape5QBvqNhlgEX1NgXrAoulLkaATgGN/tlT4KOqu5nUcw2YLogN1ZraCSEcDDbUc/Vy8B5C2FevgY1hsJba69friX5J1Ef1JZXgrn/mE9gqpKkPmfFYyQEuZ7r+TKoX6fbPAkuZHM2cvNm9OrCQZ3AuZ+Y6wKr6pvaAdfUiZ9DrP7dMAWvqKzBZVJICfcUY54FX+P0DeI8x7oYQWuPQkiRpD2D/om/8smGxRgV13wAAAABJRU5ErkJggg==") no-repeat 2px center !important;
+}
+
+#pswd:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAACZUlEQVQ4jaWUz0tUURTHP+fOTM6UQ4KW4EQ6A66EQZ0n43La1yJKiIqihZXu6j+I2lZQSIQLCVsUA1Gb1kKbHN6Psk0ZSGkjQZvgpZIz750WOjINk0743VzuOfd87/mee+4R/oGxsbHI0tLSFWAc6N82fxKR6XQ6/aRYLAbN4qSZcWBgoD0ej78CBoHHIjKvqgLkgWuAXalUTi8sLKw1xppmhIlE4hGQqlarWeAh0CUincCDaDSaBfpisdhUSxmOjIwMhmHoiIgVBEEyEolcCIJgGsAYc1VVZ1V1wxgzDww6jvNh1wzDMDypqo5t256ITKTT6UnP82zP8+xMJjMBTHqeZwPvVPVUK5J7RWQxm80eBZbri18sFgNjzMrQ0NAR4KOI9LVCGAUqxpiDxpiNJv51VT0EbAKxVgj3hZ1HyeVyMRG5r6oXgQSwAbRtr/VIAL9rZ1R1VkRuOo5TgS15NVxW1fOqekNEfrWSjaq2i8hdVXWBmb8IReSYqr53XXfmfyTmcrlLxpje2r6lGhYKhXihUIi3cnZPwnw+3+37/jff91e2W2l/hKp6GOgEuuLxeMf/EFZo0lelUmkRKAPfS6XS5yYXHgjDcLO2r3/lZbbGlAHChqDrxpg2QBsTEpF+4EvNsNOH+Xy+u1qtfgXOOY7zci9pAJZlnVHVp2EYHvc87wdApOYsl8trPT09bcCdVCo1t7q6Wt6NbHh4eBR4LiL3XNd93UwyyWTylu/7GVV9Y1nWNDAnIj8b5Heo6glgXFWfZTKZ27Zt7/ibTmzLss6q6iQwytYXq8c68FZVp1zXfdEY+wcAQfbUPesaMAAAAABJRU5ErkJggg==") no-repeat 2px center !important;
+}
+
+#cpswd:focus {
+  background: #ffcccc url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAACZUlEQVQ4jaWUz0tUURTHP+fOTM6UQ4KW4EQ6A66EQZ0n43La1yJKiIqihZXu6j+I2lZQSIQLCVsUA1Gb1kKbHN6Psk0ZSGkjQZvgpZIz750WOjINk0743VzuOfd87/mee+4R/oGxsbHI0tLSFWAc6N82fxKR6XQ6/aRYLAbN4qSZcWBgoD0ej78CBoHHIjKvqgLkgWuAXalUTi8sLKw1xppmhIlE4hGQqlarWeAh0CUincCDaDSaBfpisdhUSxmOjIwMhmHoiIgVBEEyEolcCIJgGsAYc1VVZ1V1wxgzDww6jvNh1wzDMDypqo5t256ITKTT6UnP82zP8+xMJjMBTHqeZwPvVPVUK5J7RWQxm80eBZbri18sFgNjzMrQ0NAR4KOI9LVCGAUqxpiDxpiNJv51VT0EbAKxVgj3hZ1HyeVyMRG5r6oXgQSwAbRtr/VIAL9rZ1R1VkRuOo5TgS15NVxW1fOqekNEfrWSjaq2i8hdVXWBmb8IReSYqr53XXfmfyTmcrlLxpje2r6lGhYKhXihUIi3cnZPwnw+3+37/jff91e2W2l/hKp6GOgEuuLxeMf/EFZo0lelUmkRKAPfS6XS5yYXHgjDcLO2r3/lZbbGlAHChqDrxpg2QBsTEpF+4EvNsNOH+Xy+u1qtfgXOOY7zci9pAJZlnVHVp2EYHvc87wdApOYsl8trPT09bcCdVCo1t7q6Wt6NbHh4eBR4LiL3XNd93UwyyWTylu/7GVV9Y1nWNDAnIj8b5Heo6glgXFWfZTKZ27Zt7/ibTmzLss6q6iQwytYXq8c68FZVp1zXfdEY+wcAQfbUPesaMAAAAABJRU5ErkJggg==") no-repeat 2px center !important;
+}
+
+input[type="text"]:hover,input[type="password"]:hover, textarea:hover, select:hover{
+  background-color: #eeeeee;
 }
 
 fieldset {
