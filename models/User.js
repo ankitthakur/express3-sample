@@ -29,7 +29,7 @@ function User(data){
 	
 	UserModel.schema.pre('save', function (next) {
 	    var self = this;
-	    UserModel.find({email : self.email}, function (err, docs) {
+	    UserModel.find({email : self.email, password: self.password}, function (err, docs) {
 	        if (!docs.length){
 	            next()
 	        }else{
@@ -38,7 +38,7 @@ function User(data){
 	    });
 	}) ;
 	
-	this.encryptPassword(data.password, data.password);
+	data.password = this.encryptPassword(data.password);
 	
 	this.user                     = new UserModel(data);
 	
@@ -55,18 +55,20 @@ User.prototype.validate        = function (callBack){
 	
 }
 
-User.prototype.encryptPassword = function (encryptPassword, password){
+User.prototype.encryptPassword = function (password){
 	
 	var crypto                    = require('crypto')
-	, shaSum                      = crypto.createHash('sha256');
+	, shasum                      = crypto.createHash('sha256');
 	
 	console.log('befor shaSum : '+password);
 	
-	shaSum.update(password);
-	console.log('after shaSum : '+encryptPassword);
+	shasum.update(password);
 	
-	encryptPassword               = shaSum.digest('hex')
+	password               = shasum.digest('hex');
 	
+	console.log('after shaSum : '+password);
+	
+	return password;
 }
 
 User.prototype.save            = function (callBack){
@@ -78,6 +80,19 @@ User.prototype.save            = function (callBack){
 		}
 		callBack(err);		
 	});
+}
+
+User.prototype.isExist = function(email, password, callBack){
+    
+	password = this.encryptPassword(password);
+	
+	UserModel.find({email : email, password: password}, function (err, docs) {
+        if (!docs.length){
+            next()
+        }else{
+            console.log('user exists: ',self.email);
+        }
+    });
 }
 
 User.prototype.model           = this.user;
