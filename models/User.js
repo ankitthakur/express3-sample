@@ -3,29 +3,31 @@
 */
 
 /**
-data                    = {
-firstName:'First Name',
-'User.js'
-lastName:'Last Name',
-username:'user@123',
-email:'email123@abc.com',
-password:'pswd@123',
-age:21
+data                           = {
+	firstName:'First Name',
+	'User.js'
+	lastName:'Last Name',
+	username:'user@123',
+	email:'email123@abc.com',
+	password:'pswd@123',
+	age:21
 }
 */
 
 function User(data){
   
-	var UserSchema         = require('./UserSchema')
-	, userSchema           = new UserSchema()
-	, UserModel            = userSchema.mongoose.model('User', userSchema.schema);
+	var UserSchema                = require('./UserSchema')
+	, userSchema                  = new UserSchema()
+	, UserModel                   = userSchema.mongoose.model('User', userSchema.schema);
 	
 	UserModel.schema.path('email').validate(function (value) {
-		var emailRegex        = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
+		var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
 	  return emailRegex.test(value);
 	}, 'Invalid email');
 	
-	this.user              = new UserModel(data);
+	data.password = this.encryptPassword(data.password, data.password);
+	
+	this.user                     = new UserModel(data);
 	
 	
 	
@@ -33,24 +35,28 @@ function User(data){
 	console.log('this.model.password : '+this.user.password);
 }
 
-User.prototype.validate = function (callBack){
+User.prototype.validate        = function (callBack){
 	
 	console.log(err.errors.email.type)
 	console.log(err.errors.email.message)
 	
 }
 
-User.prototype.save     = function (callBack){
+User.prototype.encryptPassword = function (encryptPassword, password){
 	
-	console.log('start saving');
-	console.log('callBack '+callBack);
-	console.log('schema '+this.user.schema);
+	var crypto                    = require('crypto')
+	, shaSum                      = crypto.createHash('sha256');
+	
+	shaSum.update(password);
+	
+	encryptPassword               = shaSum.digest('hex')
+	
+}
+
+User.prototype.save            = function (callBack){
+	
 	this.user.save(function (err) {
 		
-		console.log(err.errors.email.type);
-		console.log(err.errors.email.message);
-		;
-		console.log('callBack');
 		if (err) {
 			console.error(err); // we should handle this
 		}
@@ -58,6 +64,5 @@ User.prototype.save     = function (callBack){
 	});
 }
 
-User.prototype.model    = this.user;
-
-module.exports          = User;
+User.prototype.model           = this.user;
+module.exports                 = User;

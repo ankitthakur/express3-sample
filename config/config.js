@@ -1,4 +1,4 @@
-var Conf = function(app, express){
+var Conf = function(app, express, mongoose){
   
   this.displayName = 'Conf';
   
@@ -23,7 +23,7 @@ var Conf = function(app, express){
 	
   };
   
-  setup(app, express);
+  setup(app, express, mongoose);
   
 }
 

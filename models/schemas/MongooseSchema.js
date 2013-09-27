@@ -4,10 +4,9 @@ function MongooseSchema(){
 	
 	this.mongoose                       = require('mongoose');
 	this.Schema                         = this.mongoose.Schema;
-	console.log('Mongoose this.Schema '+this.Schema);
 }
 
-MongooseSchema.prototype.getSchema	= function(properties){
+MongooseSchema.prototype.getSchema   = function(properties){
 	var schema                          = new this.Schema(properties);
 	return schema;
 };

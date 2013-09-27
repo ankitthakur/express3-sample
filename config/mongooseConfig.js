@@ -20,7 +20,7 @@ MongooseConfig = (function(){
 		  return 'mongodb://' + creds['hostname'] + ':' + creds['port'] + '/' + creds['db'];
 		}
 	};
-	
+	console.log(mongoURI(creds));
 	prototype.mongoUrl = process.env.MONGODB_URI || mongoURI(creds);
 	
 	function MongooseConfig(){}

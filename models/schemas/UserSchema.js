@@ -5,15 +5,15 @@ var UserSchema                   = function (){
 	
 	if(!(this instanceof UserSchema)) return new UserSchema();
 	
-	var crypto                      = require('crypto')
-
-	, mandatoryStringType           = {type:String, required:true}
+	var mandatoryStringType           = {type:String, required:true}
 	, indexedStringType             = {type:String, index:true, required:true}
 	, indexedUniqueStringType       = {type:String, required:true, index: { unique: true, sparse: true }}
 	, optionalStringType            = {type:String, required:false}
 	, mandatoryNumberType           = {type:Number, required:true}
 	, indexedNumberType             = {type:Number, index:true, required:true}
 	, optionalNumberType            = {type:Number, required:false}
+	, dayType                       = { type: Number, min: 1, max: 31, required: false }
+	, monthType                     = { type: Number, min: 1, max: 12, required: false }
 	
 	// schema
 	, UserSchemaProperties          = {
@@ -22,8 +22,16 @@ var UserSchema                   = function (){
 		, username: indexedStringType
 		, email: indexedUniqueStringType
 		, password: mandatoryStringType
+		, birthdate: {
+			day: dayType
+			, month: monthType
+			, year: optionalNumberType
+		}
 		, age: optionalNumberType
+		, image: optionalStringType
 	};
+	
+	
 	
 	this.schema                     = this.getSchema(UserSchemaProperties);
 	
