@@ -13,7 +13,7 @@ function MongooseSchema(){
 	  if (err) throw err;
 
 	  // we connected ok
-	  example();
+	  
 	});
 	
 	this.connection = this.mongoose.Connection;

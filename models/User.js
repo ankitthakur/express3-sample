@@ -20,14 +20,25 @@ function User(data){
 	, userSchema                  = new UserSchema()
 	, UserModel                   = userSchema.mongoose.model('User', userSchema.schema);
 	
-	console.log('data model : '+data);
+	console.log('data data.password : '+data.password);
 	
 	UserModel.schema.path('email').validate(function (value) {
 		var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
 	  return emailRegex.test(value);
 	}, 'Invalid email');
 	
-	data.password = this.encryptPassword(data.password, data.password);
+	UserModel.schema.pre('save', function (next) {
+	    var self = this;
+	    UserModel.find({email : self.email}, function (err, docs) {
+	        if (!docs.length){
+	            next()
+	        }else{
+	            console.log('user exists: ',self.email);
+	        }
+	    });
+	}) ;
+	
+	this.encryptPassword(data.password, data.password);
 	
 	this.user                     = new UserModel(data);
 	
@@ -49,7 +60,10 @@ User.prototype.encryptPassword = function (encryptPassword, password){
 	var crypto                    = require('crypto')
 	, shaSum                      = crypto.createHash('sha256');
 	
+	console.log('befor shaSum : '+password);
+	
 	shaSum.update(password);
+	console.log('after shaSum : '+encryptPassword);
 	
 	encryptPassword               = shaSum.digest('hex')
 	
