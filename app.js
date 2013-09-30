@@ -1,25 +1,23 @@
-var express= require('express')
-, app = express()
-, mongoose = require('mongoose')
+var express = require('express'),
+    app = express(),
+    mongoose = require('mongoose'),
 
-// configs
-, Conf = require('./config/config')
-, config = new Conf(app, express, mongoose)
+    // configs
+    Conf = require('./config/config'),
+    config = new Conf(app, express, mongoose),
 
-//modules
+    // modules
 
-, ViewConfig = require('./views')
-, viewConfig = new ViewConfig(app, express)
+    ViewConfig = require('./views'),
+    viewConfig = new ViewConfig(app, express),
 
-
-// login module
-, Login = require('./modules/login')
-, login = new Login(app, express)
-
-// 
-// // register module
-, Register = require('./modules/register')
-, register = new Register(app, express);
+    // login module
+    Login = require('./modules/login'),
+    login = new Login(app, express),
+    
+    // register module
+    Register = require('./modules/register'),
+    register = new Register(app, express);
 
 app.listen(3001);
 

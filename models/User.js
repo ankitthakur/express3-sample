@@ -10,90 +10,93 @@ data                           = {
 	username:'user@123',
 	email:'email123@abc.com',
 	password:'pswd@123',
-	age:21
+	age:21,
+    registrationDate:2012-03-03 11:42:00,
+    lastVistDate: 2013-09-30 15:20:50
 }
 */
 
-function User(data){
+function User (data) {
+    
+    'use strict';
   
-	var UserSchema                = require('./schemas/UserSchema')
-	, userSchema                  = new UserSchema()
-	, UserModel                   = userSchema.mongoose.model('User', userSchema.schema);
+	var UserSchema                = require('./schemas/UserSchema'),
+        userSchema                  = new UserSchema();
+    
+    this.UserModel                   = userSchema.mongoose.model('User', userSchema.schema);
 	
-	console.log('data data.password : '+data.password);
-	
-	UserModel.schema.path('email').validate(function (value) {
-		var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
-	  return emailRegex.test(value);
+	this.UserModel.schema.path('email').validate(function (value) {
+        
+        var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
+        return emailRegex.test(value);
 	}, 'Invalid email');
 	
-	UserModel.schema.pre('save', function (next) {
+	this.UserModel.schema.pre('save', function (next) {
 	    var self = this;
-	    UserModel.find({email : self.email, password: self.password}, function (err, docs) {
-	        if (!docs.length){
-	            next()
-	        }else{
-	            console.log('user exists: ',self.email);
+	    
+        this.UserModel.find({email : self.email, password: self.password}, function (err, docs) {
+            
+            if (!docs.length) {
+	            next();
+	        } else {
+	            console.log('user exists: ', self.email);
 	        }
 	    });
-	}) ;
+	});
 	
 	data.password = this.encryptPassword(data.password);
 	
-	this.user                     = new UserModel(data);
-	
-	
-	
-	console.log('this.model.fields : '+this.user);
-	console.log('this.model.password : '+this.user.password);
+	this.user                     = new this.UserModel(data);
+    
 }
 
-User.prototype.validate        = function (callBack){
+User.prototype.validate        = function (callBack) {
+	'use strict';
+	console.log(err.errors.email.type);
+	console.log(err.errors.email.message);
 	
-	console.log(err.errors.email.type)
-	console.log(err.errors.email.message)
-	
-}
+};
 
-User.prototype.encryptPassword = function (password){
-	
-	var crypto                    = require('crypto')
-	, shasum                      = crypto.createHash('sha256');
-	
-	console.log('befor shaSum : '+password);
-	
-	shasum.update(password);
+User.prototype.encryptPassword = function (password) {
+	'use strict';
+	var crypto                    = require('crypto'),
+        shasum                      = crypto.createHash('sha256');
+    
+    shasum.update(password);
 	
 	password               = shasum.digest('hex');
 	
-	console.log('after shaSum : '+password);
-	
 	return password;
-}
+};
 
-User.prototype.save            = function (callBack){
+User.prototype.save            = function (callBack) {
 	
-	this.user.save(function (err) {
+	'use strict';
+    
+    this.user.save(function (err) {
 		
-		if (err) {
+        if (err) {
 			console.error(err); // we should handle this
 		}
-		callBack(err);		
+		callBack(err);
 	});
-}
+};
 
-User.prototype.isExist = function(email, password, callBack){
+User.prototype.isExist = function (email, password, callBack) {
+    
+    'use strict';
     
 	password = this.encryptPassword(password);
 	
-	UserModel.find({email : email, password: password}, function (err, docs) {
-        if (!docs.length){
-            next()
-        }else{
-            console.log('user exists: ',self.email);
+	this.UserModel.find({email : email, password: password}, function (err, docs) {
+        
+        if (!docs.length) {
+            next();
+        } else {
+            console.log('user exists: ', this.email);
         }
     });
-}
+};
 
 User.prototype.model           = this.user;
 module.exports                 = User;

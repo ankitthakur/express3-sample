@@ -29,7 +29,7 @@ var RegisterRoutes = function(app){
 			console.log(req.body);
 			
 			
-			var User = require ('./models/User');
+			var User = require ('../../../models/User');
 			var userModel = new User({username:req.body['username'], password:req.body['password'], email:req.body['email']});
 
 			userModel.save(function(err) {

@@ -1,16 +1,24 @@
-function MongooseSchema(){
+function MongooseSchema() {
+    
+    'use strict';
 	
-	if(!(this instanceof MongooseSchema)) return new MongooseSchema();
+	if (!(this instanceof MongooseSchema)) {
+        return new MongooseSchema();
+    }
 	
 	this.mongoose                       = require('mongoose');
 	this.Schema                         = this.mongoose.Schema;
-	MongooseConfig = require('../../config/mongooseConfig');
-	mongoConfig = new MongooseConfig();
-	this.url = mongoConfig.mongoUrl;
+	
+    var MongooseConfig = require('../../config/mongooseConfig'),
+        mongoConfig = new MongooseConfig();
+    
+    this.url = mongoConfig.mongoUrl;
 	
 	this.mongoose.connect(this.url, function (err) {
 	  // if we failed to connect, abort
-	  if (err) throw err;
+        if (err) {
+            throw err;
+        }
 
 	  // we connected ok
 	  
@@ -20,8 +28,9 @@ function MongooseSchema(){
 	
 }
 
-MongooseSchema.prototype.getSchema   = function(properties){
-	var schema                          = new this.Schema(properties);
+MongooseSchema.prototype.getSchema   = function (properties) {
+    'use strict';
+    var schema                          = new this.Schema(properties);
 	return schema;
 };
 
