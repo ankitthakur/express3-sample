@@ -3,15 +3,15 @@
  *
  * Your css goes in this file
  */
- body, b1, #loginForm {
+ body, b1, .loginForm {
     margin: 5px 5px 5px 5px;
-    padding: 0px;
+    padding: 10px;
     outline:'#233244';
 }
-form, fieldset {
-    margin: 20px auto;
-    padding: 10px auto;
-    outline:'#dedede';
+form {
+    margin: 30px auto;
+    padding: 30px auto;
+    outline:'#233244';
 }
 html {
     height: 100%;
@@ -25,16 +25,16 @@ body {
     ;
     font-family:sans-serif;
 }
-#loginForm {
-    width: 500px;
+.loginForm {
+    width: 800px;
     margin: 10px auto;
-    padding: 30px 20px;
+    padding: 10px 20px;
     background: #c9d0de;
     border: 1px groove #e2e2e2;
     outline:'#233244';
-	-moz-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
--webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+    -moz-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+    -webkit-box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
+    box-shadow: 2px 2px #f4f4f4, -2px -2px #f4f4f4, 0px 0px 2px 2px #f2f2f2;
 }
 h1 {
     font-size: 30px;
@@ -45,82 +45,100 @@ h1 {
 }
 
 #password, #email {
-    font-size: 20px;
+    font-size: 14px;
     color: #445668;
     text-align: left;
-    margin: 0 0 10px 10px;
-	width: 200px;
+    width: 200px;
+    height:20px;
     text-shadow:0px 1px 0px #dedede;
-	padding: 0 20px;
-}
-#legend{
-    color: #445668;
-    text-align: left;
-    margin: 0 0 0px 0px;
-	padding-left: 2x;
-	text-shadow:0px 2px 0px #dedede
 }
 
+
 #emailLabel, #pswdLabel {
-    font-size: 20px;
+    font-size: 16px;
     color: #445668;
     text-align: left;
     margin: 0 0 0px 0px;
-	padding-left: 15px;
-	width: 220px;
+    padding-left: 15px;
+    width: 100px;
     text-shadow:0px 1px 0px #f2f2f2
 }
 
 
-.btn-submit, .btn-cancel{
-	height: 30px;
-	left: 30px;
-	width: 150px;
-	font-size: 20px;
-	color: #f2f2f2;
-	background: #233244;
-	background: -moz-linear-gradient(top, #25303C 0%, #728eaa 100%);
-	/* FIREFOX */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(100%, #233244));
-	/*WEB-KIT */
-	text-align: center;
-	margin: 20px 20px 20px 20px;
-	-moz-border-radius: 12px;
-	border-radius: 12px;
-	border: 1px solid #dedede;
-	text-shadow:0px 1px 0px #f2f2f2;
-	-moz-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px; #f2f2f2;
-	-webkit-box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 1px 1px 1px 1px #f2f2f2;
-	box-shadow: 1px 1px #f4f4f4, -1px -1px #f4f4f4, 0px 0px 1px 1px #f2f2f2;
+#legend {
+    font-size: 20px;
+    color: #445668;
+    text-align: left;
+    width:98.8%;
+    padding-left: 10px;
+    text-shadow:0px 1px 0px #f2f2f2
+}
+
+.control-button{
+    color: #e1e1e1;
+    text-decoration:none;
+    text-align: center;
+    padding: 0px 10px;
+    height: 30px;
+    left: 20px;
+    width: 100px;
+
+
+    /* gradient background */
+    /* old browsers */
+    background: #233244;
+
+    /* firefox 3.6+ */
+    background: -moz-linear-gradient(top, #233244 0%, #233244 100%);
+    /* chrome and safari */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#233244), color-stop(30%,#233244), color-stop(100%, #233244));
+    /* Opera11.10+ */
+    background: -o-linear-gradient(top, #233244 0%,#233244 100%);
+    /* IE10+ */
+    background: -ms-linear-gradient(top, #233244 0%,#233244 100%);
+    /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#233244', endColorstr='#233244',GradientType=0 );
+    /* W3C */
+    background: linear-gradient(top, #233244 0%, #233244 100%);
+
+    /* Border Radius */
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 5px;
+
+    /*fgdf Box Shadows */
+    -webkit-box-shadow: inset 0 1px 0 #564b46, 0 1px 1px #181514;
+    -moz-box-shadow: inset 0 1px 0 #564b46, 0 1px 1px #181514;
+    box-shadow: inset 0 1px 0 #564b46, 0 1px 1px #181514;
+
+    /* Transition Effect */
+    -webkit-transition: all 0s ease;
+    -moz-transition: all 0s ease;
+    -o-transition: all 0s ease;
+    -ms-transition: all 0s ease;
+    transition: all 0s ease;
 }
 
 
-input[type="text"], fieldset.elist > legend {
+input[type="text"]{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
- #legend {
- font-family: sans-serif;
-  font-size: 14px;
-}
-
-
-
 #email:focus {
-  background: #eeeddd url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAACHklEQVQ4jY2Tv2sUQRTHP2/2zkO4RhCP+COF2igmiBZ2AYvEIrm9VUgpanIEwcJCC/8ISQTxRw4j2KQJwdxsUoQo2FmkSFDUNKYQAsZCSBVuNzPP4vbiJor4qsfM+37mOzPvCfticPDquSDQUZB+0AqACN+9lyVj/Itms/k5Xy+dZHh4+ECrlYyD3AaC/eAsnKo+6eqq3G80GukuoC1O54F+IAF9CTrlnPsKYEzptIivA7eAIrBYKhXDmZmZpADQaqWP22LZAFe11q7sO3kZWI6iqOE9FriSJOkEcEdqtVqPqqyCJqCXrLUfqtVqt0gwAfQBh/ey/AUw74GCiPYa76kDRtU8y4lXgWt/isFau6Kqk0Dgvamb9muDiJtu3zcYBw4Bb5wLTlk7J9bOSR5iDFmt9hsRjgOUSqU1AFUyoI4sLMyu/+0rkiT5ktV2G8AAbG1taecAAOec7whqtdqJPKBcLnf2nFHlW9tB+Wy2+Da7ymQYhkeHhoaOeS/P84Dt7Z2eLF0vgC6BnBFxN4Bl1eCBiOsDGQTZMMbssR+GkULHLO8M+AbgQOphGPbG8eyaqjsPNAGnyk9VpoHr0HabhXofTEpGfQTc/UcjARBF0UXn9HIcNx921gRgbGysuLn5Y16VAXKtnKbpR4BC4WAv6KiIjgBFkJvWvn61C4D/HyYRnlYqR+7tGaZ8/B5nBkBPZkbXVWURdqbiOP6Ur/8Fng3uAGCp2voAAAAASUVORK5CYII=") no-repeat 2px center !important;
+  background: #eeeddd no-repeat 2px center !important;
 }
 
 #pasword:focus {
-  background: #eeeddd url("data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAABXElEQVRYhe3XwUrcUBTG8Z/VhaCIUsEiovgAunEjWF3oG+hGFN/CRaGlT+BjqM8ircrQguBKQVAY7KLoyMjo6CKTMtxGTWYm6iIfnMW5Ofd8/1xukhuy6QOWsY0TVHGLU+xgpVGTi2ZRwsMLUWrUdlTrort9yTyOKjY6Zb6IWgbzOGpYate8D+dB4zp2sYDeRsyL9kA9qL1AfzsAX4KGd1h7pn7V/6v1tR2Ao6DZ9xRzvgVzjls1nwga3Ui3nH2oBHMnnyp+7pkdD/J9XKcAqOBnMDbRCsDHIL9MYR6rHOTDrQB0BflDBoB6Wp/cXptp9eYA4TIPYBMzGMN007UyfqXsO4WRpvw3znCILfxNmtSNPdlfuVnjB3qSAGZfwTyOudi0eQ98SqLKSaNJAG+iAqAAKAAKgALgXQGkOXB2SldJg4Oig2fen+I/GHqK7LPo+H2fg3EdB6LfuH96BBgEx4xWiWsdAAAAAElFTkSuQmCC") no-repeat 2px center !important;
+  background: #eeeddd  no-repeat 2px center !important;
 }
 
 input[type="text"]:hover,input[type="password"]:hover, textarea:hover, select:hover{
   background-color: #e3e3e3;
 }
 
-fieldset {
+form {
   border: 2px #445668 solid;
   border-radius: 10px;
 }

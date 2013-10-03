@@ -16,7 +16,7 @@ data                           = {
 }
 */
 
-function User (data) {
+function User(data) {
     
     'use strict';
   
@@ -27,7 +27,7 @@ function User (data) {
 	
 	this.UserModel.schema.path('email').validate(function (value) {
         
-        var emailRegex               = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/i;
+        var emailRegex               = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/i;
         return emailRegex.test(value);
 	}, 'Invalid email');
 	

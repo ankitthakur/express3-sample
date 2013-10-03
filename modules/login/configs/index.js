@@ -1,16 +1,18 @@
-var LoginConfig = function(app, express){
+var LoginConfig = function (app, express) {
   
-	this.displayName = 'LoginConfig';
+	'use strict';
+    
+    this.displayName = 'LoginConfig';
   
-	var routes;
+	var setup;
   
-	setup = function(app, express){
+	setup = function (app, express) {
   	  
 		// for future use
-	}
+	};
 	
   
 	setup(app, express);
-}
+};
 
 module.exports = LoginConfig;

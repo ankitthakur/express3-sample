@@ -3,17 +3,55 @@
 
 <head>
     <meta charset="utf-8" />
-    
-	<title>
-		{% block title %}My App{% endblock %}
-	</title>
-	{% block head %}{% endblock %}
+
+    <title>
+        {% block title %}My App{% endblock %}
+    </title>
+
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/layout.css" rel="stylesheet" type="text/css" media="screen"/>
+
+
+    {% block head %}{% endblock %}
 </head>
 
 <body class="body" id="body">
+
+    <script src="../bootstrap/js/bootstrap.min.js"></script>
+
+    <ul class="dark_menu">
+        <li>
+            <a href="#">Home</a>
+        </li>
+
+        <li>
+            <a href="#">Portfolio</a>
+            <ul>
+                <li><a href="#">Lorem1 ipsum dolor</a></li>
+                <li><a href="#">Donec2 lorem</a></li>
+                <li><a href="#">Lorem3 ipsum dolor</a></li>
+                <li><a href="#">Donec4 lorem</a></li>
+            </ul>
+
+        </li>
+        <li>
+            <a href="#">Blog</a><!-- Sub Menu Begin -->
+            <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Donec lorem</a></li>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Donec lorem</a></li>
+            </ul>
+            <!-- Sub Menu End -->
+        </li>
+
+        <li><a href="#">Contact</a></li>
+
+    </ul>
+
     <h1>
-		{% block pageTitle %}{% endblock %}
-	</h1>
-		{% block content %}{% endblock %}
+        {% block pageTitle %}{% endblock %}
+    </h1>
+        {% block content %}{% endblock %}
 </body>
 </html>

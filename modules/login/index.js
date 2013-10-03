@@ -6,16 +6,15 @@ var Login = function(app, express){
   
   setup = function(app, express){
 	  
-	  var path = require('path')
-	  
-	  , LoginConfig = require('./configs')
-	  , loginConfig = new LoginConfig(app, express)
-	  
-	  , LoginRoutes = require('./routes')
-	  , loginRoutes = new LoginRoutes(app);
+	  var path = require('path'),
+          
+          LoginConfig = require('./configs'),
+          loginConfig = new LoginConfig(app, express),
+          
+          LoginRoutes = require('./routes'),
+          loginRoutes = new LoginRoutes(app);
 	  
   };
-  
   
   setup(app, express);
 }

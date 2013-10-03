@@ -1,28 +1,27 @@
-var LoginRoutes = function(app){
+var LoginRoutes = function (app) {
   
+    'use strict';
+    
 	this.displayName = 'LoginRoutes';
   
 	var routes,
-	
-	LoginViewModel = {
-		Login:'Login',
-		Email:'Email',
-		email:'Enter Email',
-		Password:'Password',
-		password:'Enter Password',
-		submit:'Submit',
-		cancel:'Cancel'
-	};
+        LoginViewModel = {
+            Login: 'Login',
+            Email: 'Email',
+            email: 'Enter Email',
+            Password: 'Password',
+            password: 'Enter Password',
+            submit: 'Submit',
+            cancel: 'Cancel'
+        };
   
-	routes = function(app){
+    routes = function (app) {
 		
-		console.log(__dirname);
-	  
-		app.get('/login', function(req, res){
-			res.render('html/login',LoginViewModel);
+		app.get('/login', function (req, res) {
+			res.render('html/login', LoginViewModel);
 		});
 
-		app.post('/login', function(req, res) {
+		app.post('/login', function (req, res) {
 			console.log(req.body);
 			res.send(req.params);
 		});
@@ -30,6 +29,6 @@ var LoginRoutes = function(app){
 	};
   
 	routes(app);
-}
+};
 
 module.exports = LoginRoutes;

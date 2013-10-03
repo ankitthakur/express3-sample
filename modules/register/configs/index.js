@@ -1,16 +1,18 @@
-var RegisterConfig = function(app, express){
-  
+var RegisterConfig = function (app, express) {
+    
+    'use strict';
+    
 	this.displayName = 'RegisterConfig';
   
-	var routes;
+	var setup;
   
-	setup = function(app, express){
+	setup = function (app, express) {
   	  
 		// for future use
-	}
+	};
 	
   
 	setup(app, express);
-}
+};
 
 module.exports = RegisterConfig;
