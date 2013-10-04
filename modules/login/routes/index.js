@@ -1,10 +1,10 @@
 var LoginRoutes = function (app) {
-  
+
     'use strict';
     
-	this.displayName = 'LoginRoutes';
-  
-	var routes,
+    this.displayName = 'LoginRoutes';
+    
+    var routes,
         LoginViewModel = {
             Login: 'Login',
             Email: 'Email',
@@ -14,21 +14,20 @@ var LoginRoutes = function (app) {
             submit: 'Submit',
             cancel: 'Cancel'
         };
-  
+    
     routes = function (app) {
-		
-		app.get('/login', function (req, res) {
-			res.render('html/login', LoginViewModel);
-		});
-
-		app.post('/login', function (req, res) {
-			console.log(req.body);
-			res.send(req.params);
-		});
-	
-	};
-  
-	routes(app);
+        
+        app.get('/login', function (req, res) {
+            res.render('html/login', LoginViewModel);
+        });
+    
+        app.post('/login', function (req, res) {
+            console.log(req.body);
+            res.send(req.params);
+        });
+    };
+    
+    routes(app);
 };
 
 module.exports = LoginRoutes;

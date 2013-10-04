@@ -2,14 +2,14 @@
 var MongooseSchema               = require('./MongooseSchema');
 
 var UserSchema                   = function () {
-	
+
     'use strict';
     
-	if (!(this instanceof UserSchema)) {
+    if (!(this instanceof UserSchema)) {
         return new UserSchema();
     }
-	
-	var mandatoryStringType         = {type: String, required: true},
+    
+    var mandatoryStringType         = {type: String, required: true},
         indexedStringType             = {type: String, index: true, required: true},
         indexedUniqueStringType       = {type: String, required: true, index: { unique: true, sparse: true }},
         optionalStringType            = {type: String, required: false},
@@ -18,8 +18,8 @@ var UserSchema                   = function () {
         optionalNumberType            = {type: Number, required: false},
         dayType                       = {type: Number, min: 1, max: 31, required: false },
         monthType                     = {type: Number, min: 1, max: 12, required: false },
-	
-	// schema
+    
+    // schema
         UserSchemaProperties          = {
             firstName: optionalStringType,
             lastName: optionalStringType,
@@ -44,8 +44,8 @@ var UserSchema                   = function () {
             age: optionalNumberType,
             image: optionalStringType
         };
-	
-	this.schema                     = this.getSchema(UserSchemaProperties);
+    
+    this.schema                     = this.getSchema(UserSchemaProperties);
 };
 
 UserSchema.prototype             = new MongooseSchema();
