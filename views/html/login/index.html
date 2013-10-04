@@ -1,48 +1,52 @@
-{% extends '../layout.html' %}
-
-{% block title %}My Page{% endblock %}
-
-{% block head %}
-  {% parent %}
-  <link href="../css/login.css" rel="stylesheet" type="text/css"/>
-{% endblock %}
-
-
-{% block pageTitle %}
-  {% parent %}
-{% endblock %}
-
-
-{% block content %}
-
-<div class="loginForm">
-    <form action="/login" method="post" class="form-horizontal">
+    {% extends '../layout.html' %}
+    
+    {% block title %}My Page{% endblock %}
+    
+    {% block head %}
+    {% parent %}
+    <link href="../css/login.css" rel="stylesheet" type="text/css"/>
+    {% endblock %}
+    
+    
+    {% block pageTitle %}
+    {% parent %}
+    {% endblock %}
+    
+    
+    {% block content %}
+        
+        <div class="loginDiv">
+            <form class="form-vertical">
             <fieldset>
-                <legend id="legend">{{Login}}</legend>
-
-                        <div class="control-group">
-                            <label class="control-label" for="email" id="emailLabel">{{Email}}</label>
-                            <div class="input-prepend">
-                                <input type="email" id="email" placeholder="{{email}}" name="email" autofocus required/>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <label class="control-label" for="password" id="pswdLabel">{{Password}}</label>
-                            <div class="input-prepend">
-                                <input type="password" id="password" placeholder="{{password}}" name="password" required/>
-                            </div>
-                        </div>
-
-                        <div class="control-group">
-                            <div class="controls">
-                                <input class="control-button" type="submit" class="btn-submit" value="{{submit}}"/>
-                                <input class="control-button" type="button" class="btn-cancel" value="{{cancel}}"/>
-                            </div>
-                        </div>
-
+                <legend class="form-group">Login</legend>
+                
+                <div class="name">
+                    <span for="name">Username<span class="glyphicon glyphicon-asterisk">
+                        <input type="text" class="nameText" placeholder="e.g. hello" required/>
+                    </span></span>
+                </div>
+                
+                <div class="pasword">
+                    <span for="password">{{Password}}
+                        <span class="glyphicon glyphicon-asterisk">
+                            <input type="password" class="passwordText" placeholder="{{password}}" name="password" onkeyup="passwordChanged(this.value)" required/>
+                        </span>
+                    </span>
+                </div>
+                
+                <div class="remember">
+                    <input type="submit" value="Submit" class="btn" />
+                </div>
+                
+                <div class="forgot">
+                    <label class="lbl-text-success">
+                        <button type="button" formaction="/register" formmethod="get" class="btn-link">Register</button>
+                        <button type="button" formaction="/forgot" formmethod="get" class="btn-link">Forgot Password</button>
+                    </label>
+                </div>
             </fieldset>
-    </form>
-</div>
-
-{% endblock %}
+            </form>
+        
+        </div>
+    
+    {% endblock %}
