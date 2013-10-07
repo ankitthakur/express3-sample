@@ -3,7 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     
     // configs
-    Conf = require('./config/config'),
+    Conf = require('./config'),
     config = new Conf(app, express, mongoose),
     
     // modules
@@ -17,7 +17,11 @@ var express = require('express'),
     
     // register module
     Register = require('./modules/register'),
-    register = new Register(app, express);
+    register = new Register(app, express),
+    
+    // register module
+    ForgotPassword = require('./modules/forgotPassword'),
+    forgotPassword = new ForgotPassword(app, express);
     
 app.listen(3001);
     
